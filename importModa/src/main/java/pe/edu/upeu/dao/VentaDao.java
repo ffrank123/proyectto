@@ -1,10 +1,20 @@
 package pe.edu.upeu.dao;
 
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import org.fusesource.jansi.Ansi;
 import org.fusesource.jansi.AnsiConsole;
+
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Element;
+import com.itextpdf.text.Font;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfWriter;
 
 import pe.edu.upeu.crud.AppCrud;
 import pe.edu.upeu.modelo.ProductoTO;
@@ -218,7 +228,29 @@ public class VentaDao extends AppCrud{
 
         
 
-    }    
+    }     public void generarPDFReporte() {
+        Document document = new Document();
+        try {
+        PdfWriter.getInstance(document, new FileOutputStream(
+        new LeerArchivo()
+        .ubicarRutaPDF("reportes","Reporte.pdf")));
+        //open
+        document.open();
+        Font f = new Font();
+        f.setStyle(Font.BOLD);
+        f.setSize(8);
+        Paragraph p = new Paragraph("",f);
+        p.add("Reporte de Ventas");
+        p.setAlignment(Element.ALIGN_CENTER);
+        p.setSpacingAfter(5);
+        document.add(p);
+        //Aqui Agregar Tabla
+        //close
+        document.close();
+        System.out.println("Done");
+        } catch (FileNotFoundException | DocumentException e) {
+        e.printStackTrace();
+        } catch (IOException e) {
+        e.printStackTrace();
 
-
-}
+}}}

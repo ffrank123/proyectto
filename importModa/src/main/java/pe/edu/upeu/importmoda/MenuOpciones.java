@@ -50,9 +50,10 @@ public class MenuOpciones {
                 case 4: new MarcaDao().crearMarca(); break;
                 case 5: new ClienteDao().crearCliente(); break;
                 case 6: new ProductoDao().crearProducto(); break;
-             //   case 7: new ProductoDao().reportarProductos(); break;
+                //case 7: new ProductoDao().reportarProductos(); break;
                 case 8: new VentaDao().registroVentaGeneral();break;
                 case 9: new VentaDao().reporteVentasRangoFecha();break;
+                case 10: new VentaDao().generarPDFReporte();break;
                 default: System.out.println("Opcion Invalida!"); break;
             }
             String continuar=leerT.leer("",

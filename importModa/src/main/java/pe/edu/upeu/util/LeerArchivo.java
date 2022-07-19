@@ -53,5 +53,11 @@ public class LeerArchivo {
                 crear();
             return null;
             }             
-	}   
-}
+	} 
+    
+    public LeerArchivo(){}
+
+    public File ubicarRutaPDF(String nombreCap, String filex) {
+    File ruta= crearCarpetaRaiz(nombreCap);
+    return new File(ruta.getAbsolutePath()+"/"+filex);
+}}
