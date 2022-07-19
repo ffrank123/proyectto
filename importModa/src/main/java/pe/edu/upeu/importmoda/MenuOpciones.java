@@ -31,6 +31,9 @@ public class MenuOpciones {
         }
     }
     
+    /**
+     * 
+     */
     public void menuPrincipal() {
         System.out.println("------------------------------------Sistema de Ventas------------------------------");
         int opciones = 7;
@@ -40,7 +43,8 @@ public class MenuOpciones {
         menu += "3=Crear Categoria\n";
         menu += "4=Crear Marca\n";
         menu += "5=Crear Cliente\n6=Crear Producto\n7=Listar Productos\n";
-        menu +="8=Registro Ventas\n9=Reporte de Ventas";
+        menu += "8=Registro Ventas\n9=Reporte de Ventas";
+        menu += "10=reporte en pdf\n";
         System.out.println(menu);
         do {
             switch (opciones) {
@@ -62,6 +66,9 @@ public class MenuOpciones {
                 opciones=leerT.leer(0, "Eliga una operacion:\n"+menu);
             }else{opciones=0;}
         } while (opciones != 0);
+    }
+
+    public void MenuOpciones() {
     }
 
 }
